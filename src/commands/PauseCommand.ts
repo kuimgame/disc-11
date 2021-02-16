@@ -5,6 +5,7 @@ import { isUserInTheVoiceChannel, isMusicPlaying, isSameVoiceChannel } from "../
 import { createEmbed } from "../utils/createEmbed";
 
 @DefineCommand({
+    aliases: ["일시정지"],
     name: "pause",
     description: "Pause the music player",
     usage: "{prefix}pause"
@@ -17,7 +18,7 @@ export class PauseCommand extends BaseCommand {
         if (message.guild?.queue?.playing) {
             message.guild.queue.playing = false;
             message.guild.queue.connection?.dispatcher.pause();
-            return message.channel.send(createEmbed("info", "⏸  **|** Paused the music player"));
+            return message.channel.send(createEmbed("info", "⏸  **|** 일시정지 됨"));
         }
         message.channel.send(createEmbed("error", "The music player is already paused"))
             .catch(e => this.client.logger.error("PAUSE_CMD_ERR:", e));
