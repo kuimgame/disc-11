@@ -10,7 +10,7 @@ import { createEmbed } from "../utils/createEmbed";
 import { Video } from "../utils/YouTube/structures/Video";
 
 @DefineCommand({
-    aliases: ["p", "add", "재"],
+    aliases: ["p", "add", "재생"],
     name: "play",
     description: "Play some music",
     usage: "{prefix}play <youtube video name|video link|playlist link>"
