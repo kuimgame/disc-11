@@ -5,7 +5,7 @@ import { isMusicPlaying } from "../utils/decorators/MusicHelper";
 import { createEmbed } from "../utils/createEmbed";
 
 @DefineCommand({
-    aliases: ["q", "queue-list", "track-list"],
+    aliases: ["q", "queue-list", "목록"],
     name: "queue",
     description: "Show the current queue",
     usage: "{prefix}queue"
