@@ -5,7 +5,7 @@ import { isMusicPlaying } from "../utils/decorators/MusicHelper";
 import { createEmbed } from "../utils/createEmbed";
 
 @DefineCommand({
-    aliases: ["np", "now-playing"],
+    aliases: ["np", "지금"],
     name: "nowplaying",
     description: "Send an information about the music player",
     usage: "{prefix}nowplaying"
