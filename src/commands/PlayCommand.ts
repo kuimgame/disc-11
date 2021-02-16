@@ -10,7 +10,7 @@ import { createEmbed } from "../utils/createEmbed";
 import { Video } from "../utils/YouTube/structures/Video";
 
 @DefineCommand({
-    aliases: ["p", "add", "play-music"],
+    aliases: ["p", "add", "재"],
     name: "play",
     description: "Play some music",
     usage: "{prefix}play <youtube video name|video link|playlist link>"
@@ -68,7 +68,7 @@ export class PlayCommand extends BaseCommand {
                     );
                 }
                 return message.channel.send(
-                    createEmbed("info", `✅  **|**  All videos in **[${playlist.title}](${playlist.url})** playlist has been added to the queue`)
+                    createEmbed("info", `✅  **|**  All videos in **[${playlist.title}](${playlist.url})** 재생 목록이 대기열에 추가되었습니다`)
                         .setThumbnail(playlist.thumbnailURL)
 
                 );
@@ -137,7 +137,7 @@ export class PlayCommand extends BaseCommand {
                 return message.channel.send(
                     createEmbed("warn", `**[${song.title}](${song.id})** is already queued, and the bot configuration disallows duplicated music in the queue, ` +
                 `please use **\`${this.client.config.prefix}repeat\`** instead`)
-                        .setAuthor("⌛ Already queued")
+                        .setAuthor("⌛ 이미 대기 중")
                 );
             }
             message.guild.queue.songs.addSong(song);
@@ -179,7 +179,7 @@ export class PlayCommand extends BaseCommand {
             if (serverQueue.lastMusicMessageID !== null) serverQueue.textChannel?.messages.fetch(serverQueue.lastMusicMessageID, false).then(m => m.delete()).catch(e => this.client.logger.error("PLAY_ERR:", e));
             if (serverQueue.lastVoiceStateUpdateMessageID !== null) serverQueue.textChannel?.messages.fetch(serverQueue.lastVoiceStateUpdateMessageID, false).then(m => m.delete()).catch(e => this.client.logger.error("PLAY_ERR:", e));
             serverQueue.textChannel?.send(
-                createEmbed("info", `⏹  **|**  The queue has finished, use **\`${guild.client.config.prefix}play\`** again to play more music`)
+                createEmbed("info", `⏹  **|**  전제 재생완료, 다시 **\`${guild.client.config.prefix}play\`** 하기`)
             ).catch(e => this.client.logger.error("PLAY_ERR:", e));
             serverQueue.connection?.disconnect();
             return guild.queue = null;
@@ -210,7 +210,7 @@ export class PlayCommand extends BaseCommand {
                 // eslint-disable-next-line max-statements-per-line
                 if (serverQueue.loopMode === 0) { serverQueue.songs.deleteFirst(); } else if (serverQueue.loopMode === 2) { serverQueue.songs.deleteFirst(); serverQueue.songs.addSong(song); }
                 if (serverQueue.lastMusicMessageID !== null) serverQueue.textChannel?.messages.fetch(serverQueue.lastMusicMessageID, false).then(m => m.delete()).catch(e => this.client.logger.error("PLAY_ERR:", e));
-                serverQueue.textChannel?.send(createEmbed("info", `⏹  **|**  Stop playing **[${song.title}](${song.url})**`).setThumbnail(song.thumbnail))
+                serverQueue.textChannel?.send(createEmbed("info", `⏹  **|**  노래 정지  **[${song.title}](${song.url})**`).setThumbnail(song.thumbnail))
                     .then(m => serverQueue.lastMusicMessageID = m.id)
                     .finally(() => {
                         this.play(guild).catch(e => {
