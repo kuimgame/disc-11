@@ -5,6 +5,7 @@ import { isUserInTheVoiceChannel, isMusicPlaying, isSameVoiceChannel } from "../
 import { createEmbed } from "../utils/createEmbed";
 
 @DefineCommand({
+    aliases: ["다시재생"],
     name: "resume",
     description: "Resume the paused music player",
     usage: "{prefix}resume"
