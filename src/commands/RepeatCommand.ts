@@ -6,7 +6,7 @@ import { isUserInTheVoiceChannel, isMusicPlaying, isSameVoiceChannel } from "../
 import { createEmbed } from "../utils/createEmbed";
 
 @DefineCommand({
-    aliases: ["loop", "music-repeat", "music-loop"],
+    aliases: ["loop", "music-repeat", "반복"],
     name: "repeat",
     description: "Repeat the music player in the queue",
     usage: "{prefix}repeat [all|one|disable]"
@@ -32,7 +32,7 @@ export class RepeatCommand extends BaseCommand {
             off: 0,
             0: 0
         };
-        const modeTypes = ["disabled", "only this music", "all items in the queue"];
+        const modeTypes = ["없음", "한곡만", "목록전체"];
         const modeEmoji = ["▶  **|** ", "🔂  **|** ", "🔁  **|** "];
         const mode = args[0] as string | undefined;
         if (mode === undefined) {
