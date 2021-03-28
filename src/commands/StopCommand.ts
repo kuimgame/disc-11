@@ -5,7 +5,7 @@ import { isUserInTheVoiceChannel, isMusicPlaying, isSameVoiceChannel } from "../
 import { createEmbed } from "../utils/createEmbed";
 
 @DefineCommand({
-    aliases: ["leave", "정지"],
+    aliases: ["leave", "나가", "정지"],
     name: "stop",
     description: "Stop music player and delete the queue",
     usage: "{prefix}stop"
