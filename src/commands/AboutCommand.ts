@@ -8,7 +8,7 @@ import { DefineCommand } from "../utils/decorators/DefineCommand";
 import { createEmbed } from "../utils/createEmbed";
 
 @DefineCommand({
-    aliases: ["botinfo", "info", "stats"],
+    aliases: ["정보", "대해"],
     name: "about",
     description: "Send the bot information",
     usage: "{prefix}about"
